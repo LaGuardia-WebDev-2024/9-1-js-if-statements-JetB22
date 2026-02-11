@@ -5,14 +5,53 @@ setup = function(){
 }
 
 var y = 0;  // position of the ball
-var speed = 2;  // how far the ball moves every time
+var speed = 100;  // how far the ball moves every time
+var dvdLogoX = 175;
+var dvdLogoY = 0;
+var dvdLogoSpeedH = 5;
+var dvdLogoSpeedV = 5;
 
 //draw Function - will run repeatedly
 draw = function() {
     background(255, 255, 255, 150);
 
-    fill(66, 66, 66);
     ellipse(200, y, 50, 50);
 
-    y = y + speed;  // move the ball
+    y = y + speed;
+
+    if(y > 300){
+        speed= -100
+        fill(random(255),random(255),random(255));
+    };
+
+    if(y < 100){
+        speed = 100
+        fill(random(255),random(255),random(255));
+    };
+
+    rect(dvdLogoX,dvdLogoY,50,50)
+    dvdLogoX = dvdLogoX + dvdLogoSpeedH;
+    dvdLogoY = dvdLogoY + dvdLogoSpeedV;
+
+    if(dvdLogoX > 350){
+        dvdLogoSpeedH = -5
+        fill(random(255),random(255),random(255));
+    };
+
+    if(dvdLogoY > 350){
+        dvdLogoSpeedV = -5
+        fill(random(255),random(255),random(255));
+    };  
+
+    if(dvdLogoX < 0){
+        dvdLogoSpeedH = 5
+        fill(random(255),random(255),random(255));
+    }; 
+
+    if(dvdLogoY < 0){
+        dvdLogoSpeedV = 5
+        fill(random(255),random(255),random(255));
+    }; 
+
+
 };
